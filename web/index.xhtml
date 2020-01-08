@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a="http://java.sun.com/jsf/passthrough">
+
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+              integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
+
+        <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+
+        <title>JSF - Persitencia de dados</title>
+    </h:head>
+
+    <h:body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container">
+                    <a href="index.html" class="navbar-brand">
+                        <!--<img src="img/Esig.png" width="180"/>-->
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="nav-principal">
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section id="resumo">
+            <div class="container">
+                <div class="row red align-items-center justify-content-center">
+                    <div class="align-self-center">
+                        <h1 class="display-5 mt-4 mb-4">Insira o Registro</h1>
+                        <h:form class="mt-4 mb-4">
+                            <div class="input-group-append">
+                                <h:inputText value="#{registroMB.registro.dados}" id="registro" a:placeholder="Registro Qualquer" class="form-control input-md"/>
+                                <h:inputText value="#{registroMB.registro.dia}" id="data" a:placeholder="Data" class="form-control input-md required"/>
+                                <h:commandButton value="submit" class="btn btn-primary ml-2" action="#{registroMB.salvar()}"/>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <h:form>
+                <h:dataTable value="#{registroMB.lista}" var="tempoRegistro" class="table">
+                    
+                    <h:column>
+                        <f:facet name="header"> Registro 1</f:facet>
+                            #{tempoRegistro.dados}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"> Registro 2</f:facet>
+                            #{tempoRegistro.dia}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ação</f:facet>
+                        <h:commandLink value="Delete" onclick="if (!confirm('Are you sure you want to delete this student?'))
+                                                return false" action="#{registroMB.deletar(tempoRegistro.id)}"/>
+                    </h:column>
+                    <h:messages/>
+                </h:dataTable>
+            </h:form>
+
+
+        </section>
+    </h:body>
+</html>
+
+
+
