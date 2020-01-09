@@ -17,7 +17,7 @@ Orientações:
 
 Recomendações: Rodar a aplicação no Netbeans IDE 8.2, e o MySQL Server na sua versão 5.5.
 
-1- Baixar e rodar o script de MySQL fornecido na pasta /* para a criação do banco de dados e tabelas a serem utilizadas no projeto.
+1- Baixar e rodar o script de MySQL fornecido na pasta /database para a criação do banco de dados e tabelas a serem utilizadas no projeto.
 
 2- Seguindo as recomendações, será necessário baixar e ativar os seguintes Plug-in's do Java EE: Java EE Base; JSF; Java Persistence; Hibernate.
 
