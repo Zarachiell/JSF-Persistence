@@ -48,7 +48,7 @@ Contributor(s):
     <property name="hibernate.connection.password">admin</property>
     
     
-    <property name="hibernate.hbm2dd1.auto">update</property>
+    <property name="hibernate.hbm2dd1.auto">root</property>
     <mapping class="br.com.registro.entidade.Registros"/>
   </session-factory>
 </hibernate-configuration>
